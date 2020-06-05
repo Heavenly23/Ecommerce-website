@@ -1,0 +1,144 @@
+a{
+  text-decoration: none;
+}
+
+
+.top_nav_bar{
+  background-color:black;
+  overflow: hidden;
+  border-bottom:solid 1px #777;
+
+}
+
+.top_nav_bar a {
+  float:right;
+  display: block;
+  color: white;
+  padding: 11px 12px;
+  text-decoration: none;
+  font-size: 12px;
+  border-color:solid 1px #777;
+}
+
+.top_second_nav_bar{
+  margin: 1%;
+  margin-left:0%;
+  padding-bottom:1%;
+  border-bottom:solid 1px darkblue;
+  width:100%;
+}
+
+
+.top_second_nav_bar a#logo {
+  color: black;
+  text-decoration: none;
+  font-size:40px;
+  margin-right: 3%;
+  margin-left:3%;
+  text-decoration-style: solid;
+}
+
+
+.top_second_nav_bar #search{
+  margin-right: 1%;
+  font-size: 17px;
+  padding:1%;
+  width:43%;
+  height:6%;
+  border-radius: 15px;
+  border: solid 2px darkblue;
+  color:brown;
+}
+
+.pane{
+  float:left;
+  width:15%;
+  margin: 2%;
+  margin-left:3%;
+  margin-right: 0%;
+}
+
+
+
+ .pane ul li{
+     list-style: none;
+     margin-top: 10%;
+     color:darkblue;
+     background-color:#F8F8F8;
+     margin-left:-22%;
+     padding-left:18%;
+     padding-right:-18%;
+     width:100%;
+     overflow-x: hidden;
+     font-size:16px;
+ }
+
+ .pane a:hover{
+   color:blue;
+   text-decoration: underline;
+ }
+
+ #paneName{
+   padding-left:15%;
+   padding-right:15%;
+   background-color: black;
+   color:white;
+   text-align: center;
+   padding-top:2%;
+   padding-bottom:2%;
+   width:100%;
+ }
+
+ .products{
+   width:80%;
+   float:left;
+   margin-top: 2%;
+
+ }
+
+p{
+  text-align: center;
+   width: 100%;
+   font-size: 22px;
+}
+
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+ .card {
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+   margin: auto;
+   max-width: 250px;
+   margin-bottom:10%;
+   font-family: arial;
+ }
+img{
+  height:310px;
+  width:250px;
+}
+ .price {
+   color: grey;
+   font-size: 22px;
+   text-align: center;
+   width: 100%;
+ }
+
+ .card button {
+   border: none;
+   outline: 0;
+   padding: 8px;
+   margin:-14px;
+   color: white;
+   background-color: #000;
+   text-align: center;
+   cursor: pointer;
+   width: 100%;
+   font-size: 18px;
+ }
+
+ .card button:hover {
+   opacity: 0.7;
+ }
