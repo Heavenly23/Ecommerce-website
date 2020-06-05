@@ -55,22 +55,23 @@ a{
   width:15%;
   margin: 2%;
   margin-left:3%;
-  margin-right: 0%;
+  margin-right: 2%;
 }
 
-
+.pane ul{
+  margin-left: -20%;
+}
 
  .pane ul li{
      list-style: none;
      margin-top: 10%;
      color:darkblue;
      background-color:#F8F8F8;
-     margin-left:-22%;
-     padding-left:18%;
-     padding-right:-18%;
      width:100%;
-     overflow-x: hidden;
-     font-size:16px;
+     overflow-x:hidden;
+     overflow-y:hidden;
+     font-size:15px;
+     padding-left: 15%;
  }
 
  .pane a:hover{
@@ -79,12 +80,10 @@ a{
  }
 
  #paneName{
-   padding-left:15%;
-   padding-right:15%;
    background-color: black;
    color:white;
    text-align: center;
-   padding-top:2%;
+   padding-top:0.5%;
    padding-bottom:2%;
    width:100%;
  }
