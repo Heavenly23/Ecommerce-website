@@ -35,6 +35,7 @@ a{
   font-size:40px;
   margin-right: 3%;
   margin-left:3%;
+
   text-decoration-style: solid;
 }
 
@@ -56,14 +57,15 @@ a{
   margin: 2%;
   margin-left:3%;
   margin-right: 2%;
+  border: solid 1px #777;
 }
 
-h2{
-  padding-left:1%;
+h3{
 
   border-left: 1%;
   padding-bottom: 0.5%;
-
+  background-color: #f8f8f8;
+  width:98%;
 }
 .pane ul{
   margin-left: -20%;
@@ -99,11 +101,67 @@ h2{
    width:80%;
    float:left;
    margin-top: 2%;
-
+   text-align: center;
  }
 
+ .myProducts{
+   width:80%;
+   float:left;
+   margin-top:0.5%;
+   text-align:center;
+ }
+ .myCart{
+   width:80%;
+   float:left;
+   margin-top:0.5%;
+ }
+  .cartButton{
+    float:left;
+    border-radius:15px;
+    padding:2px;
+    padding-left:5px;
+    padding-right:5px;
+    margin-left: 10px;
+    border:none;
+  }
+
+
+
+
+ .addProduct{
+   width:60%;
+   float:left;
+   margin-top:2%;
+   display:flex;
+   background-color: #f8f8f8;
+   margin-bottom:4%;
+   margin-left:5%;
+ }
+
+
+ .productInfo{
+   float:left;
+
+   padding: 0 10px;
+   border-right: solid 5px white;
+ }
+
+  .productImage{
+    float: left;
+
+    padding: 10%;
+
+  }
+
+
+form{
+  margin-left:1%;
+  background-color: #f8f8f8;
+  padding:1%;
+  width: 100%;
+}
+
 p{
-  text-align: center;
    width: 100%;
    font-size: 22px;
 }
@@ -148,15 +206,37 @@ img{
  .card button#myproduct {
    border: none;
    outline: 0;
-   padding: 8px;
+   padding: 2px;
    color: white;
    background-color: #000;
    text-align: center;
    cursor: pointer;
    width: 100%;
    font-size: 18px;
+   margin-top:0%;
  }
 
  .card button:hover {
    opacity: 0.7;
  }
+
+.addProduct input#addProduct{
+  background-color: green;
+  color:white;
+}
+
+.addProduct input#productName,#productDescription,
+   input#productQuantity,input#productQuantity,input#price,input#type{
+
+     width:70%;
+     border-radius: 15px;
+     border: solid 1px darkblue;
+
+   }
+input:focus{
+  border-radius: 15px;
+
+}
+span{
+  color:red;
+}
