@@ -25,12 +25,12 @@
      <a href="add_product.html"> Add Product </a>
      <a href="#"> Profile </a>
 
-     </div>
+    </div>
 
      <div class = "top_second_nav_bar">
           <a id="logo"> <b> OUR STORE </b></a>
           <input id="search" type="text" placeholder="Search ...">
-       </div>
+      </div>
 
     <div class= "pane">
 
@@ -48,67 +48,42 @@
        <li><a> Electronics </a></li>
          </ul>
 
-      </div>
-
-      <div class="products" >
-
-        <div class="column">
-        <div class="card">
-         <img src="images/denim.webp" alt="Denim Jeans">
-         <p>Tailored Jeans</p>
-         <p class="price">$19.99</p>
-         <p><button>Add to Cart</button></p>
-        </div>
-      </div>
-
-      <div class="column">
-      <div class="card">
-       <img src="images/dress.jpg" alt="Dinner Dress" width="100%;">
-       <p>Dinner Dress</p>
-       <p class="price">$39.99</p>
-       <p><button>Add to Cart</button></p>
-      </div>
     </div>
 
-    <div class="column">
-    <div class="card">
-     <img src="images/jacket.webp" alt="Denim Jeans">
-     <p>Men Jacket</p>
-     <p class="price">$45.00</p>
-     <p><button>Add to Cart</button></p>
-    </div>
-  </div>
+      <div class="products">
 
-  <div class="column">
-  <div class="card">
-   <img src="images/nike.jpg" alt="Denim Jeans">
-   <p>Nike Men Shoes</p>
-   <p class="price">$219.99</p>
-   <p><button>Add to Cart</button></p>
-  </div>
-  </div>
-
-  <div class="column">
-  <div class="card">
-   <img src="images/summer_dress.jpg" alt="Denim Jeans">
-   <p>Summer Dress</p>
-   <p class="price">$19.99</p>
-   <p><button>Add to Cart</button></p>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-          </div>
-
-
-
+        <div class="main-content">
+          <h1><strong>Your Products</strong></h1>
         </div>
+        <br>
+
+        <?php  
+          require('database.php');
+
+          $userID = $_GET['id'];
+
+          $query = 'SELECT productID FROM Items WHERE userID ='$userID;
+
+          $result = mysqli_query($con, $query);
+
+          $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+          mysqli_free_result($result);
+
+          //array of items that the seller sells
+
+          foreach($array as $key=>$value):  ?>
+            <div class="column">
+              <div class="card">
+                 <img src="images/denim.webp" alt="Denim Jeans">
+                 <p>Tailored Jeans</p>
+                 <p class="price">$19.99</p>
+                 <p><button>Modify</button></p>
+              </div>
+            </div>
+        <?php endforeach; ?>
+
+      </div>
 
 
 
