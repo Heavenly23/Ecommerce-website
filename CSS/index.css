@@ -141,14 +141,12 @@ h3{
 
  .productInfo{
    float:left;
-
    padding: 0 10px;
    border-right: solid 5px white;
  }
 
   .productImage{
     float: left;
-
     padding: 10%;
 
   }
@@ -226,7 +224,10 @@ img{
 }
 
 .addProduct input#productName,#productDescription,
-   input#productQuantity,input#productQuantity,input#price,input#type{
+   input#productQuantity,input#productQuantity,input#price,input#type,
+   input#username,input#password,select#accountType,input#countryRegister,
+    input#usernameRegister,input#emailRegister,input#addressRegister,
+    input#confirmPasswordRegister{
 
      width:70%;
      border-radius: 15px;
@@ -239,4 +240,22 @@ input:focus{
 }
 span{
   color:red;
+}
+
+.account{
+  width:25%;
+  margin-left: 35%;
+  margin-top:1%;
+  border-radius: 15;
+  margin-bottom: 1%;
+}
+.account form{
+  padding:0%;
+
+}
+#usernameLabel,input#username,#passwordLabel,input#password,select#username,
+ #emailLabel,#addressLabel,select#accountType,input#countryRegister,
+  input#usernameRegister,input#emailRegister,input#addressRegister,
+  input#confirmPasswordRegister{
+  margin-left:12%;
 }
