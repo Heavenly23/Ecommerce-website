@@ -227,7 +227,7 @@ img{
    input#productQuantity,input#productQuantity,input#price,input#type,
    input#username,input#password,select#accountType,input#countryRegister,
     input#usernameRegister,input#emailRegister,input#addressRegister,
-    input#confirmPasswordRegister{
+    input#confirmPasswordRegister,input#bankAccountRegister{
 
      width:70%;
      border-radius: 15px;
@@ -256,6 +256,6 @@ span{
 #usernameLabel,input#username,#passwordLabel,input#password,select#username,
  #emailLabel,#addressLabel,select#accountType,input#countryRegister,
   input#usernameRegister,input#emailRegister,input#addressRegister,
-  input#confirmPasswordRegister{
+  input#confirmPasswordRegister,#bankAccountLabel,input#bankAccountRegister{
   margin-left:12%;
 }
