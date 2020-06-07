@@ -59,20 +59,20 @@
         <p> Product Price </p>
 
         <input type="button" id="addProduct" class="cartButton"
-        value="Delete" name="addProduct" style="background-color:red;color:white;font-size:22;padding:1%;margin-left:60%;"><br>
+        value="Delete" name="addProduct" style="background-color:red;color:white;font-size:22px;padding:1%;margin-left:60%;"><br>
         <hr>
 
         <p> Product Name </p>
         <p> Product Price </p>
 
         <input type="button" id="addProduct" class="cartButton"
-        value="Delete" name="addProduct" style="background-color:red;color:white;font-size:22;padding:1%;margin-left:60%;"><br>
+        value="Delete" name="addProduct" style="background-color:red;color:white;font-size:22px;padding:1%;margin-left:60%;"><br>
         <hr>
 
         <h2> Total Price = 300</h2>
         <hr>
         <input type="button" id="addProduct" class="cartButton"
-        style="background-color:green;color:white;font-size:22;padding:1%;margin-left:60%;"
+        style="background-color:green;color:white;font-size:22px;padding:1%;margin-left:60%;"
         value="Checkout Product" name="addProduct">
 
           </div>

@@ -25,8 +25,8 @@
 
    <div class="top_nav_bar">
      <a style="color:white;float:left;"> Hi! <?php echo $_SESSION['username']; ?></a>
-     <a href="index.html">Sign Out </a>
-     <a href="cart.html"> My Cart </a>
+     <a href="index.php">Sign Out </a>
+     <a href="cart.php"> My Cart </a>
      <a> Profile </a>
 
      </div>
@@ -127,7 +127,6 @@
        echo "<p><button>Add to Cart</button></p>";
        echo "</div>";
        echo "</div>";
-
    }}
 
 
