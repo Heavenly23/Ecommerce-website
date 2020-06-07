@@ -19,6 +19,9 @@
 </head>
 
 <body>
+  <?php
+     require('database.php');
+   ?>
 
    <div class="top_nav_bar">
 
@@ -58,7 +61,7 @@
 
       <div class="products" >
 
-        <div class="column">
+        <!-- <div class="column">
         <div class="card">
          <img src="images/denim.webp" alt="Denim Jeans">
          <p>Tailored Jeans</p>
@@ -101,10 +104,39 @@
    <p class="price">$19.99</p>
    <p><button>Add to Cart</button></p>
   </div>
-</div>
+</div> -->
+
+
+<?php
+
+  $sql = "SELECT * FROM Items";
+
+  $result = $con->query($sql);
+
+  if($result->num_rows > 0){
+  //   <div class="column">
+  //   <div class="card">
+  //    <img src="images/summer_dress.jpg" alt="Denim Jeans">
+  //    <p>Summer Dress</p>
+  //    <p class="price">$19.99</p>
+  //    <p><button>Add to Cart</button></p>
+  //   </div>
+  // </div>
+   while($row = $result->fetch_assoc()){
+      echo "<div class='column'>";
+      echo "<div class='card'>";
+      echo "<img src='".$row['url']."' alt=''>";
+      echo "<p>".$row['name']."</p>";
+      echo "<p class='price'>".$row['price']."</p>";
+      echo "<p><button>Add to Cart</button></p>";
+      echo "</div>";
+      echo "</div>";
+
+  }}
 
 
 
+   ?>
 
 
 
