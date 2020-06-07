@@ -13,7 +13,9 @@
   $dbname = "mb";
 
   // Create connection
-  $conn = new mysqli($servername, $username, $password, $dbname);
+  //$conn = new mysqli($servername, $username, $password, $dbname);
+  $conn = new mysqli("localhost", "grader", "allowme", "mb");
+
   // Check connection
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -68,13 +70,14 @@
          $_SESSION['logged_in'] = true;
          $_SESSION['username'] = $row['name'];
          $_SESSION['userId'] = $row['userID'];
+         $userID = $row['userID'];
        }
        if($row['userType'] == "Custom"){
           echo "<script type='text/javascript'> document.location = 'home_for_buyers.php';</script>";
 
        }
        else if($row['userType'] == "Seller"){
-         echo "<script type='text/javascript'> document.location = 'home_for_sellers.php';</script>";
+         echo "<script type='text/javascript'> document.location = 'home_for_sellers.php?id=$userID';</script>";
 
        }}
 

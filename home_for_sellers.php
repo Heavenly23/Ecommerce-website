@@ -64,18 +64,7 @@
         </div>
         <br>
 
-      <div class="container">
-        <table class="table table-bordered">
-            <thead>
-              <tr>
-                  <th class="text-center">#</th>
-                  <th class="text-center">Product Name</th>
-                  <th class="text-center">Quantity</th>
-                  <th class="text-center">Price</th>
-              </tr>
-            </thead>
-            <tbody>
-
+      
 
         <?php  
 
@@ -91,7 +80,22 @@
               echo "<strong>None</strong> of your products have sold yet";
           }
           else{
+            ?>
+            <div class="container">
+              <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th class="text-center">Product Name</th>
+                        <th class="text-center">Quantity</th>
+                        <th class="text-center">Price</th>
+                    </tr>
+                  </thead>
+            <tbody>
 
+
+
+            <?php
             foreach ($posts as $post) {
                 $query = 'SELECT * FROM Cart WHERE productID ='. $post['productID'];
 
