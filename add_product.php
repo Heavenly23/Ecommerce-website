@@ -58,10 +58,10 @@
           <form id="myForm" method="post" action="add_product.php" enctype="multipart/form-data">
                      <lable> Product Name <span>*</span> </lable><br>
                      <input type="text" id="productName" name="productName" required><br><br>
-                     
+
                      <lable> Category <span>*</span> </lable><br>
                      <input type="text" id="type" list="category" name="category"autocomplete="off" required>
-                     
+
                      <datalist id="category" >
                          <option value="Clothing">
                          <option value="Accessories/Shoes">
@@ -75,16 +75,16 @@
 
                      <lable> Quantity <span>*</span> </lable><br>
                      <input type="number" id="productQuantity" name="productQuantity" min="1" max="20" required><br><br>
-                    
+
                      <lable> Price per product <span>*</span> </lable><br>
                      <input type="number" min="1" id="price" name="price" required><br><br>
-                     
+
                       <lable> Product Description <span>*</span> </lable><br>
                      <textarea type="text" id="productDescription" name="productDescription" rows="4" cols="50" required></textarea><br><br>
-                     
+
                      <lable> Warehouse Address <span>*</span> </lable><br>
                      <input type="text" id="type" list="street" name="street" placeholder=" Street" required><br><br>
-                     
+
                      <lable> City <span>*</span> </lable><br>
                      <input type="text" id="type" list="city" name="city" required><br><br>
 
@@ -93,19 +93,19 @@
 
                      <lable> Zip Code <span>*</span> </lable><br>
                      <input type="text" id="type" list="zipCode" name="zipCode" required><br><br>
-                     
+
                      <lable> Country <span>*</span> </lable><br>
                      <input type="text" id="type" list="country" name="country" required><br><br>
-                     
+
                      <span><input type="file"  id="fileToUpload" name="fileToUpload" value="Choose Image" onchange="readURL(this);" required>
                       <br>
-                      <input type="submit" class="btn btn-primary" id="addProduct" style="float:right;border-radius:15px;" value="ADD PRODUCT" name="submit" required> 
+                      <input type="submit" class="btn btn-primary" id="addProduct" style="float:right;border-radius:15px;" value="ADD PRODUCT" name="submit" required>
                       </span>
             </form>
        </div>
 
       <div class="productImage">
-          <div class="card">
+          <div class="card" >
                <img id="outputIMG" src="">
           </div>
       </div>
@@ -117,7 +117,7 @@
 
       <script type="text/javascript">
         $("#outputIMG").hide();
-        $(document).ready(function(){ 
+        $(document).ready(function(){
             var userID = "<?php echo $userID ?>";
             var url = "uploadFiles.php?id=" + userID;
             document.getElementById('myForm').action = url;
@@ -136,7 +136,7 @@
             var reader = new FileReader();
 
             reader.onload = function (e) {
-              $("#outputIMG").attr("src", e.target.result).width(400).height(500);
+              $("#outputIMG").attr("src", e.target.result).width(250).height(310);
               $("#outputIMG").show();
 
             };
@@ -145,7 +145,7 @@
             posterIMG = input.files[0];
           }
       }
-          
+
       </script>
 
   </body>
