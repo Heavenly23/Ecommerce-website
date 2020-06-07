@@ -20,11 +20,10 @@
 
     <div class="top_nav_bar">
 
-       <a> Sign Out </a>
-       <a> My Products </a>
-       <a> Add Product </a>
-       <a> Profile </a>
-
+       <a href="index.html"> Sign Out </a>
+       <a id="my_product" href="my_product.html"> My Products </a>
+       <a id="add_product" href="add_product.php?id="> Add Product </a>
+       <a id="home_for_sellers" href="#"> Profile </a>
     </div>
 
      <div class = "top_second_nav_bar">
@@ -122,6 +121,14 @@
             var userID = "<?php echo $userID ?>";
             var url = "uploadFiles.php?id=" + userID;
             document.getElementById('myForm').action = url;
+
+            var url1 = "add_product.php?id=" + userID;
+            $('#add_product').attr('href','').attr('href',url1);
+            var url2 = "my_product.php?id=" + userID;
+            $('#my_product').attr('href','').attr('href',url2);
+            var url3 = "home_for_sellers.php?id=" + userID;
+            $('#home_for_sellers').attr('href','').attr('href',url3);
+
         });
 
         function readURL(input) {
