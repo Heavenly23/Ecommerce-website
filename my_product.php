@@ -18,25 +18,19 @@
 
 <body>
 
-    <?php 
-      require('database.php');
-
-      $userID = intval($_GET['id']);
-    ?>
-
    <div class="top_nav_bar">
 
-     <a href="index.html"> Sign Out </a>
-     <a href="my_product.html"> My Products </a>
-     <a id="add_product" href="add_product.php?id="> Add Product </a>
-     <a href="#"> Profile </a>
+     <a> Sign Out </a>
+     <a> My Products </a>
+     <a> Add Product </a>
+     <a> Profile </a>
 
-    </div>
+   </div>
 
      <div class = "top_second_nav_bar">
           <a id="logo"> <b> OUR STORE </b></a>
           <input id="search" type="text" placeholder="Search ...">
-      </div>
+       </div>
 
     <div class= "pane">
 
@@ -54,16 +48,16 @@
        <li><a> Electronics </a></li>
          </ul>
 
-    </div>
+      </div>
 
-      <div class="products">
-
-        <div class="main-content">
-          <h1><strong>Your Products</strong></h1>
-        </div>
-        <br>
+      <div class="myProducts" >
+        <h1> <strong>My Products </strong></h1>
 
         <?php  
+          require('database.php');
+
+          $userID = intval($_GET['id']);
+
           $query = "SELECT productID FROM Sells WHERE userID = $userID";
 
           $result = mysqli_query($con, $query);
@@ -85,37 +79,39 @@
                 $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 mysqli_free_result($result);
 
-                foreach($products as $product):  ?>
-                    <div class="column">
+                foreach($products as $product):  
+
+                  $query = 'SELECT * FROM Sells WHERE productID ='. $post['productID'];
+
+                  $result = mysqli_query($con, $query);
+
+                  $a = mysqli_fetch_assoc($result);
+                  mysqli_free_result($result); ?>
+
+                  <div class="column">
                       <div class="card">
-                         <img src="images/denim.webp" alt="Denim Jeans">
+                         <img src="<?php echo $product['url'] ?>" >
                          <p><?php echo $product['name'] ?></p>
                          <p class="price">$<?php echo $product['price'] ?></p>
-                         <p><button>Modify</button></p>
+                         <p><button id="<?php echo $product['productID'] ?>" style="background-color:Green" onclick="goToPage(this)">Edit</button>
+                           <button style="background-color:brown" id="myproduct"><?php echo $a['qty'] ?> qty Left</button></p>
                       </div>
-                    </div>
+                  </div>
                 <?php endforeach;
+
+            } 
+          } ?>
+      
+          </div>
+
+          <script type="text/javascript">
+            function goToPage(self){
+              var td = event.target;
+              const id = td.id;
+
+              window.location.href = 'editItem.php?id='+id;
             }
-        }
-
-          ?>
-
-      </div>
-
-
-
-
-
-      <script type="text/javascript">
-
-          $(document).ready(function(){   
-            var userID = "<?php echo $userID ?>";
-            var url = "add_product.php?id=" + userID;
-            $('#add_product').attr('href','').attr('href',url);
-
-          });
-
-      </script>
+          </script>
   </body>
 
 </html>

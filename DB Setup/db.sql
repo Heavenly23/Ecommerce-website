@@ -41,7 +41,7 @@ CREATE TABLE Sellers (
        );
 
 CREATE TABLE Items (
-       productID INT,
+       productID INT ,
        name CHAR(20),
        price INT,
        category CHAR(20),
