@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!doctype html>
 <html>
 
@@ -19,7 +20,8 @@
 <body>
 
    <div class="top_nav_bar">
-
+     <a style="color:white;float:left;"> Hi! <?php echo $_SESSION['username']; ?></a>
+     <div id='usernameAndId'></div>
      <a> Sign Out </a>
      <a> My Products </a>
      <a> Add Product </a>

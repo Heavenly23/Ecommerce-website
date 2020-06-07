@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!doctype html>
 <html>
 
@@ -18,14 +19,14 @@
 
 <body>
 
-    <?php 
+    <?php
       require('database.php');
 
       $userID = intval($_GET['id']);
     ?>
 
    <div class="top_nav_bar">
-
+     <a style="color:white;float:left;"> Hi! <?php echo $_SESSION['username']; ?></a>
      <a href="index.html"> Sign Out </a>
      <a href="my_product.html"> My Products </a>
      <a id="add_product" href="add_product.php?id="> Add Product </a>
@@ -63,7 +64,7 @@
         </div>
         <br>
 
-        <?php  
+        <?php
           $query = "SELECT productID FROM Sells WHERE userID = $userID";
 
           $result = mysqli_query($con, $query);
@@ -108,7 +109,7 @@
 
       <script type="text/javascript">
 
-          $(document).ready(function(){   
+          $(document).ready(function(){
             var userID = "<?php echo $userID ?>";
             var url = "add_product.php?id=" + userID;
             $('#add_product').attr('href','').attr('href',url);
