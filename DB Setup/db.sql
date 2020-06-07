@@ -46,6 +46,7 @@ CREATE TABLE Items (
        price INT,
        category CHAR(20),
        description CHAR(255),
+       url CHAR(255),
        PRIMARY KEY(productID)
        );
 
@@ -111,7 +112,8 @@ CREATE TABLE Places (
        FOREIGN KEY(userID) REFERENCES Users(userID) ON DELETE CASCADE
        );
 
---
+
+
 -- INSERT INTO Users (userID, name, email, password, bankAccountNo, userType)
 -- VALUES (1, 'John Apple', 'John.apple@gmail.com', '1234', 123456789, 'Buyer');
 -- INSERT INTO Users (userID, name, email, password, bankAccountNo, userType)
@@ -150,3 +152,4 @@ CREATE TABLE Places (
 -- VALUES ('UK', false);
 -- INSERT INTO isAllowed (country, isAllowed)
 -- VALUES ('France', false);
+
