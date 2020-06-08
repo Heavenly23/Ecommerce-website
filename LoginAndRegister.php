@@ -14,7 +14,7 @@
 
   // Create connection
   //$conn = new mysqli($servername, $username, $password, $dbname);
-  $conn = new mysqli("localhost", "grader", "allowme", "mb");
+  $conn = new mysqli("localhost", "root", "", "mb");
 
   // Check connection
   if ($conn->connect_error) {
@@ -53,15 +53,17 @@
 
       if ($conn->query($sql2) === TRUE ) {
 
-      $sql2 = "INSERT INTO Users(userID, name, email, password, bankAccountNo, userType)
-      VALUES ('$id', '$username', '$email', '$password', '$bankAccountNum', '$accountType')";
+        $sql2 = "INSERT INTO Users(userID, name, email, password, bankAccountNo, userType)
+        VALUES ('$id', '$username', '$email', '$password', '$bankAccountNum', '$accountType')";
 
-      if ($conn->query($sql2)) {
         echo "<script type='text/javascript'> document.location = 'login.html';</script>";
-      }
-      else {
-        echo "<script type='text/javascript'> document.location = 'register.html';</script>";
-      } 
+
+        // if ($conn->query($sql2)) {
+        //   echo "<script type='text/javascript'> document.location = 'login.html';</script>";
+        // }
+        // else {
+        //   echo "<script type='text/javascript'> document.location = 'register.html';</script>";
+        // } 
     }
   }
   }
