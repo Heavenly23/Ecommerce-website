@@ -8,8 +8,8 @@
   <?php
   session_start();
   $servername = "localhost";
-  $username = "username";
-  $password = "password";
+  $username = "root";
+  $password = "";
   $dbname = "mb";
 
   // Create connection
