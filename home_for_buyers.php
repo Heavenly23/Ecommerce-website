@@ -25,8 +25,8 @@
 
    <div class="top_nav_bar">
      <a style="color:white;float:left;"> Hi! <?php echo $_SESSION['username']; ?></a>
-     <a href="index.html">Sign Out </a>
-     <a href="cart.html"> My Cart </a>
+     <a href="index.php">Sign Out </a>
+     <a href="cart.php"> My Cart </a>
      <a> Profile </a>
 
      </div>
@@ -56,53 +56,6 @@
 
       <div class="products" >
 
-        <!-- <div class="column">
-        <div class="card">
-         <img src="images/denim.webp" alt="Denim Jeans">
-         <p>Tailored Jeans</p>
-         <p class="price">$19.99</p>
-         <p><button>Add to Cart</button></p>
-        </div>
-      </div>
-
-      <div class="column">
-      <div class="card">
-       <img src="images/dress.jpg" alt="Dinner Dress" width="100%;">
-       <p>Dinner Dress</p>
-       <p class="price">$39.99</p>
-       <p><button>Add to Cart</button></p>
-      </div>
-    </div>
-
-    <div class="column">
-    <div class="card">
-     <img src="images/jacket.webp" alt="Denim Jeans">
-     <p>Men Jacket</p>
-     <p class="price">$45.00</p>
-     <p><button>Add to Cart</button></p>
-    </div>
-  </div>
-
-  <div class="column">
-  <div class="card">
-   <img src="images/nike.jpg" alt="Denim Jeans">
-   <p>Nike Men Shoes</p>
-   <p class="price">$219.99</p>
-   <p><button>Add to Cart</button></p>
-  </div>
-  </div>
-
-  <div class="column">
-  <div class="card">
-   <img src="images/summer_dress.jpg" alt="Denim Jeans">
-   <p>Summer Dress</p>
-   <p class="price">$19.99</p>
-   <p><button>Add to Cart</button></p>
-  </div>
-</div>
-
- -->
-
  <?php
 
    $sql = "SELECT * FROM Items";
@@ -110,25 +63,18 @@
    $result = $con->query($sql);
 
    if($result->num_rows > 0){
-   //   <div class="column">
-   //   <div class="card">
-   //    <img src="images/summer_dress.jpg" alt="Denim Jeans">
-   //    <p>Summer Dress</p>
-   //    <p class="price">$19.99</p>
-   //    <p><button>Add to Cart</button></p>
-   //   </div>
-   // </div>
+
     while($row = $result->fetch_assoc()){
        echo "<div class='column'>";
        echo "<div class='card'>";
        echo "<img src='".$row['url']."' alt=''>";
        echo "<p>".$row['name']."</p>";
-       echo "<p class='price'>".$row['price']."</p>";
-       echo "<p><button>Add to Cart</button></p>";
+       echo "<p class='price'>".$row['price']."$</p>";
+       echo "<p><button onClick ='return goToMyCart(".$row['productID'].",".$row['price'].");' >Add to Cart</button></p>";
        echo "</div>";
        echo "</div>";
-
-   }}
+   }
+ }
 
 
 
@@ -139,7 +85,25 @@
 
         </div>
 
+        <script type="text/javascript">
+          function goToMyCart(productId,price){
+            
+            var request = $.ajax({
+                url: 'addTocart_aux.php',
+                type: 'GET',
+                data: { id: productId, price: price}
+            });
 
+            request.done(function(data) {
+                  alert("Successfully added to your cart!");
+            });
+
+            request.fail(function(jqXHR, textStatus) {
+                  alert("Connection Error! report!");
+            });
+
+          }
+        </script>
   </body>
 
 </html>

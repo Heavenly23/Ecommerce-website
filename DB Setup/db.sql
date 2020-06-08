@@ -84,9 +84,9 @@ CREATE TABLE isAllowed (
 
 CREATE TABLE Orders (
        orderID INT,
-       isCompleted BOOLEAN,
-       isShipped BOOLEAN,
-       isDelivered BOOLEAN,
+       isCompleted INT,
+       isShipped INT,
+       isDelivered INT,
        PRIMARY KEY(orderID)
        );
 

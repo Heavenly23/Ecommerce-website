@@ -40,13 +40,21 @@
 
       $sql2 = "INSERT INTO Users(userID,name, email,password,bankAccountNo,userType)
       VALUES ('$id','$username', '$email', '$password','$bankAccount','$accountType')";
+	  
+	  
+	  /* if($accountType == "Customer"){
+		  //mysqli_query($conn,"INSERT INTO users (`user_id`) VALUES ('$user_id')") or die mysqli_error($conn);
+		  $sql3 = mysqli_query($con,"INSERT INTO Orders(userID,orderID,isCompleted,isShipped,isDelivered) VALUES ('$id',0,0,0,0)")or die mysqli_error($con);
+		  //$conn->query($sql3) or die mysqli_error($conn);
+	  }
+	   */
 
-      if ($conn->query($sql2) === TRUE) {
+      if ($conn->query($sql2) === TRUE ) {
         echo "<script type='text/javascript'> document.location = 'login.html';</script>";
       }
       else {
         echo "<script type='text/javascript'> document.location = 'register.html';</script>";
-      }
+      } 
     }
   }
 

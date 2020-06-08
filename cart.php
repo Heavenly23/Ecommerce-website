@@ -19,6 +19,10 @@
 
 <body>
 
+   <?php
+     require('database.php');
+   ?>
+
    <div class="top_nav_bar">
      <a style="color:white;float:left;"> Hi! <?php echo $_SESSION['username']; ?></a>
      <div id='usernameAndId'></div>
@@ -55,35 +59,59 @@
       <div class="myCart" >
         <h3> My Cart </h3>
 
-        <p> Product Name </p>
+        <!-- <p> Product Name </p>
         <p> Product Price </p>
 
         <input type="button" id="addProduct" class="cartButton"
         value="Delete" name="addProduct" style="background-color:red;color:white;font-size:22;padding:1%;margin-left:60%;"><br>
-        <hr>
+        <hr> -->
+        <?php
 
-        <p> Product Name </p>
-        <p> Product Price </p>
+          $sql = "SELECT c.price,I.name,c.productID FROM Cart c,Items I
+                  Where c.productID = I.productID";
 
-        <input type="button" id="addProduct" class="cartButton"
-        value="Delete" name="addProduct" style="background-color:red;color:white;font-size:22;padding:1%;margin-left:60%;"><br>
-        <hr>
+          $result = $con->query($sql);
+          $total_price = 0;
+          if($result->num_rows > 0){
 
-        <h2> Total Price = 300</h2>
-        <hr>
-        <input type="button" id="addProduct" class="cartButton"
-        style="background-color:green;color:white;font-size:22;padding:1%;margin-left:60%;"
-        value="Checkout Product" name="addProduct">
+           while($row = $result->fetch_assoc()){
 
-          </div>
+              echo "<h2>".$row["name"]."</h2>";
+              echo "<h2>".$row["price"]."$</h2>";
+              echo "<hr>";
+              echo "<input type='button' id='addProduct'onClick='deleteFromMyCart(".$row['productID'].")' class='cartButton' value='Delete' name='addProduct' style='background-color:red;color:white;font-size:22;padding:1%;margin-left:60%;margin-bottom:2%;'><br>";
 
-        </div>
+              $total_price = $total_price + $row['price'];
 
-
-
-
+          }}
 
 
-  </body>
 
+         echo "<hr>";
+        echo "<h2 style='margin:2%;background-color:'black';color:'white';>TOTAL PRICE :".$total_price."$</h2>";
+        echo "<input type='button' id='addProduct' class='cartButton' style='background-color:green;color:white;font-size:22;padding:1%;margin-left:60%;' value='Checkout Product' name='addProduct'/>";
+
+        ?>
+
+</div>
+      <script type="text/javascript">
+      
+        function deleteFromMyCart(productId){
+          var request = $.ajax({
+              url: 'deleteFromCart.php',
+              type: 'GET',
+              data: { id: productId}
+          });
+
+          request.done(function(data) {
+                alert(data);
+          });
+
+          request.fail(function(jqXHR, textStatus) {
+                alert(jqXHR);
+          });
+
+        }
+      </script>
+</body>
 </html>
