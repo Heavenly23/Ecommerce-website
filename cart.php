@@ -26,9 +26,8 @@
    <div class="top_nav_bar">
      <a style="color:white;float:left;"> Hi! <?php echo $_SESSION['username']; ?></a>
      <div id='usernameAndId'></div>
-     <a> Sign Out </a>
-     <a> My Products </a>
-     <a> Add Product </a>
+     <a href="index.php"> Sign Out </a>
+     <a> My Cart </a>
      <a> Profile </a>
 
      </div>
@@ -76,10 +75,10 @@
 
            while($row = $result->fetch_assoc()){
 
-              echo "<h2>".$row["name"]."</h2>";
-              echo "<h2>".$row["price"]."$</h2>";
-              echo "<hr>";
-              echo "<input type='button' id='addProduct'onClick='deleteFromMyCart(".$row['productID'].")' class='cartButton' value='Delete' name='addProduct' style='background-color:red;color:white;font-size:22;padding:1%;margin-left:60%;margin-bottom:2%;'><br>";
+              echo "<p style='font-size:20;'>".$row["name"]."</p>";
+              echo "<p style='font-size:20;'>".$row["price"]."$</p>";
+
+              echo "<input type='button' id='addProduct'onClick='deleteFromMyCart(".$row['productID'].")'  value='Delete' name='addProduct' style='border:none;background-color:red;color:white;font-size:22;padding:1%;margin-left:60%;margin-bottom:2%;'><br>";
 
               $total_price = $total_price + $row['price'];
 
@@ -95,7 +94,7 @@
 
 </div>
       <script type="text/javascript">
-      
+
         function deleteFromMyCart(productId){
           var request = $.ajax({
               url: 'deleteFromCart.php',
@@ -104,13 +103,13 @@
           });
 
           request.done(function(data) {
-                alert(data);
+                alert("Successfully deleted from your cart");
           });
 
           request.fail(function(jqXHR, textStatus) {
                 alert(jqXHR);
           });
-
+          location.reload();
         }
       </script>
 </body>
