@@ -21,7 +21,7 @@
 
     <div class="top_nav_bar">
        <a style="color:white;float:left;"> Hi! <?php echo $_SESSION['username']; ?></a>
-       <a href="index.html"> Sign Out </a>
+       <a href="index.php"> Sign Out </a>
        <a id="my_product" href="my_product.html"> My Products </a>
        <a id="add_product" href="add_product.php?id="> Add Product </a>
        <a id="home_for_sellers" href="#"> Profile </a>

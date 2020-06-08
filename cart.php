@@ -75,8 +75,8 @@
 
            while($row = $result->fetch_assoc()){
 
-              echo "<p style='font-size:20;'>".$row["name"]."</p>";
-              echo "<p style='font-size:20;'>".$row["price"]."$</p>";
+              echo "<p style='font-size:20px;'>".$row["name"]."</p>";
+              echo "<p style='font-size:20px;'>".$row["price"]."$</p>";
 
               echo "<input type='button' id='addProduct'onClick='deleteFromMyCart(".$row["productID"].")'  value='Delete' name='addProduct' style='border:none;background-color:red;color:white;font-size:22;padding:1%;margin-left:60%;margin-bottom:2%;'><br>";
 
