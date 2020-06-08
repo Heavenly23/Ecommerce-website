@@ -66,7 +66,7 @@
         <hr> -->
         <?php
 
-          $sql = "SELECT c.price,I.name,c.productID FROM Cart c,Items I
+          $sql = "SELECT c.price,I.name,c.productID,c.orderID FROM Cart c,Items I
                   Where c.productID = I.productID";
 
           $result = $con->query($sql);
@@ -78,7 +78,7 @@
               echo "<p style='font-size:20;'>".$row["name"]."</p>";
               echo "<p style='font-size:20;'>".$row["price"]."$</p>";
 
-              echo "<input type='button' id='addProduct'onClick='deleteFromMyCart(".$row['productID'].")'  value='Delete' name='addProduct' style='border:none;background-color:red;color:white;font-size:22;padding:1%;margin-left:60%;margin-bottom:2%;'><br>";
+              echo "<input type='button' id='addProduct'onClick='deleteFromMyCart(".$row["productID"].")'  value='Delete' name='addProduct' style='border:none;background-color:red;color:white;font-size:22;padding:1%;margin-left:60%;margin-bottom:2%;'><br>";
 
               $total_price = $total_price + $row['price'];
 
@@ -88,7 +88,7 @@
 
          echo "<hr>";
         echo "<h2 style='margin:2%;background-color:'black';color:'white';>TOTAL PRICE :".$total_price."$</h2>";
-        echo "<input type='button' id='addProduct' class='cartButton' style='background-color:green;color:white;font-size:22;padding:1%;margin-left:60%;' value='Checkout Product' name='addProduct'/>";
+        echo "<input type='button' id='addProduct'onClick='checkOut()' class='cartButton' style='background-color:green;color:white;font-size:22;padding:1%;margin-left:60%;' value='Checkout Product' name='addProduct'/>";
 
         ?>
 
@@ -96,6 +96,7 @@
       <script type="text/javascript">
 
         function deleteFromMyCart(productId){
+
           var request = $.ajax({
               url: 'deleteFromCart.php',
               type: 'GET',
@@ -111,6 +112,30 @@
           });
           location.reload();
         }
+
+
+        function checkOut(orderId){
+          // alert(orderId);
+          // var request = $.ajax({
+          //     url: 'checkout.php',
+          //     type: 'GET',
+          //     data: { id: orderId}
+          // });
+          //
+          // request.done(function(data) {
+          //       alert("Successfully bought");
+          // });
+          //
+          // request.fail(function(jqXHR, textStatus) {
+          //       alert(jqXHR);
+          // });
+          // location.reload();
+          window.location.href = "home_for_buyers.php";
+        }
+
+
+
+
       </script>
 </body>
 </html>
