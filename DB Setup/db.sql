@@ -30,7 +30,7 @@ CREATE TABLE Cards (
        discountRate INT,
        PRIMARY KEY(cardType)
        );
-
+       
 CREATE TABLE Sellers (
        userID INT,
        ssn INT NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE Sells (
        qty INT,
        country CHAR(50),
        zipCode INT,
-       street CHAR(255),
+       street CHAR(255),       
        PRIMARY KEY(userID, productID),
        FOREIGN KEY(userID) REFERENCES Users(userID) ON DELETE CASCADE,
        FOREIGN KEY(productID) REFERENCES Items(productID) ON DELETE CASCADE

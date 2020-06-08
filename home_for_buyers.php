@@ -73,8 +73,12 @@
        echo "<p><button onClick ='return goToMyCart(".$row['productID'].",".$row['price'].");' >Add to Cart</button></p>";
        echo "</div>";
        echo "</div>";
+
    }
  }
+
+   
+
 
 
 
@@ -87,7 +91,7 @@
 
         <script type="text/javascript">
           function goToMyCart(productId,price){
-            
+
             var request = $.ajax({
                 url: 'addTocart_aux.php',
                 type: 'GET',

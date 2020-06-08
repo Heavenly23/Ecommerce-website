@@ -26,17 +26,19 @@
     $username = $_POST["usernameRegister"];
     $email = $_POST["emailRegister"];
     $accountType = $_POST["accountType"];
-    $bankAccount = $_POST["bankAccountRegister"];
+    $bankAccountNum = $_POST["bankAccountRegister"];
     $password = $_POST["password"];
 
-    if($username == '' || $email == '' || $accountType == '' || $bankAccount == ''|| $password == ''){
+    if($username == '' || $email == '' || $accountType == '' || $bankAccountNum == ''|| $password == ''){
       echo '<script type="text/javascript"> document.location = "register.html";</script>';
     }
     else {
-      $sql1="SELECT MAX(u.userID) FROM Users u";
+      $sql1 = "SELECT MAX(u.userID) FROM Users u";
       $result = $conn->query($sql1);
       $row = $result->fetch_assoc();
+
       $id = $row["MAX(u.userID)"] + 1;
+
 
       $sql2 = "INSERT INTO Users(userID,name, email,password,bankAccountNo,userType)
       VALUES ('$id','$username', '$email', '$password','$bankAccount','$accountType')";
@@ -50,6 +52,11 @@
 	   */
 
       if ($conn->query($sql2) === TRUE ) {
+
+      $sql2 = "INSERT INTO Users(userID, name, email, password, bankAccountNo, userType)
+      VALUES ('$id', '$username', '$email', '$password', '$bankAccountNum', '$accountType')";
+
+      if ($conn->query($sql2)) {
         echo "<script type='text/javascript'> document.location = 'login.html';</script>";
       }
       else {
@@ -57,7 +64,7 @@
       } 
     }
   }
-
+  }
 
 
 
@@ -87,9 +94,9 @@
        else if($row['userType'] == "Seller"){
          echo "<script type='text/javascript'> document.location = 'home_for_sellers.php?id=$userID';</script>";
 
-       }}
+       }
 
-  }
+  }}
 
 
   $conn->close();
